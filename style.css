@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: rgb(21, 21, 21);
+}
+#forestBG {
+    background-image: url(img/forest.jpg);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -9999999;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#container {
+    position: absolute;
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 800px;
+    height: 1000px;
+    background-color: rgb(37, 37, 37);
+}
+#clock {
+    margin-left: 30%;
+    width: 40%;
+    height: 100px;
+    border-style: solid;
+    border-color: white;
+    background-color: rgb(94, 94, 94);
+    font-size: 5em;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+.nav {
+    background-color: rgb(94, 94, 94);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    font-size: 5em;
+    text-align: center;
+}
+#nav {
+    float: left;
+}
+a {
+    text-decoration: none;
+    display: block;
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+}
+#content {
+    float: left;
+    margin: 5%;
+    width: 70%;
+    height: 70%;
+}
+.text {
+    font-size: 2em;
+    color: white;
+    height: 48%;
+    width: 48%;
+    margin: 1%;
+    float: left;
+}
+.img {
+    height: 48%;
+    width: 48%;
+    float: left;
+    margin: 1%;
+}
+.img img {
+    width: 100%;
+    height: 100%;
+}
