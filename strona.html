@@ -79,8 +79,8 @@
                         </div>
                     </section>
                 </li>
-                <li></li>
-                <li></li>
+                <li id="calculator" onclick="calculatorClicked()"><img src="img/kalkulator.png"></li>
+                <li id="gravity" onclick="gravityClicked()"><img src="img/grawitacja.png"></li>
                 <li></li>
                 <li></li>
             </ul>
@@ -136,6 +136,41 @@
                             </div>
                         </section>
                     </div>
+                </div>
+                <div id="contentCalculator">
+                    <div id="calculatorBody">
+                        <div id="display"><div><p id="displayText"></p></div></div>
+                        <button class="button" id="1" onclick="button(1)">1</button>
+                        <button class="button" id="2" onclick="button(2)">2</button>
+                        <button class="button" id="3" onclick="button(3)">3</button>
+                        <button class="button" id="mult" onclick="count('mult')">*</button>
+                        <button class="button" id="add" onclick="count('add')">+</button>
+                        <button class="button" id="sqrt" onclick="count('sqrt')">√</button>
+                        <button class="button" id="4" onclick="button(4)">4</button>
+                        <button class="button" id="5" onclick="button(5)">5</button>
+                        <button class="button" id="6" onclick="button(6)">6</button>
+                        <button class="button" id="div" onclick="count('div')">/</button>
+                        <button class="button" id="sub" onclick="count('sub')">-</button>
+                        <button class="button" id="sqr" onclick="count('sqr')">x²</button>
+                        <button class="button" id="7" onclick="button(7)">7</button>
+                        <button class="button" id="8" onclick="button(8)">8</button>
+                        <button class="button" id="9" onclick="button(9)">9</button>
+                        <button class="button" id="0" onclick="button(0)">0</button>
+                        <button class="button" id="dot" onclick="button('dot')">.</button>
+                        <button class="button" id="back" onclick="back()"><i class="fa-solid fa-delete-left"></i></button>
+                        <button class="button" id="submit" onclick="submit()">=</button>
+                        <button class="button" id="clear" onclick="clearDisplay()">CE</button>
+                    </div>
+                    <div id="calculator2">000000</div>
+                </div>
+                <div id="contentGravity">
+                    <div id="buttons">
+                        <button onmousedown="gravityLstart()" onmouseup="gravityLend()"><i class="fa-solid fa-arrow-left-long"></i></button>
+                        <button onclick="gravityJump()"><i class="fa-solid fa-arrow-up-long"></i></button>
+                        <button onmousedown="gravityRstart()" onmouseup="gravityRend()"><i class="fa-solid fa-arrow-right-long"></i></button>
+                    </div>
+                    <canvas id="gravityCanvas" width="500" height="500" onload="canvas()">
+                    </canvas>
                 </div>
             </div>
         </div>
