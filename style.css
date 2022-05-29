@@ -1,6 +1,10 @@
-* {
-    padding: 0;
+*{
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg: rgb(37, 37, 37);
 }
 body {
     background-color: rgb(21, 21, 21);
@@ -30,84 +34,83 @@ body::-webkit-scrollbar {
     background-color: rgb(37, 37, 37);
 }
 #clock {
-    margin-left: 30%;
     width: 40%;
     height: 100px;
     border-style: solid;
-    border-color: white;
+    border-color: rgb(50, 229, 232);
+    border-width: 5px;
     background-color: rgb(94, 94, 94);
     font-size: 5em;
     color: white;
     text-align: center;
     margin-top: 50px;
+    float: left;
+    animation: animateColor 4s linear infinite;
+    box-shadow: 0 0 10px rgb(50, 229, 232),
+    0 0 20px rgb(50, 229, 232);
+    border-radius: 20px;
 }
-#load{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 100;
+.socialMedia ul{
+    position: relative;
+    display: flex;
+    gap: 50px;
+}
+.socialMedia ul li{
+    margin: 10%;
+    margin-left: 15%;
+    position: relative;
+    list-style: none;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #111;
-    font-family: consolas;
+    cursor: pointer;
+    transition: 0.5s;
 }
-.scan h1{
-    color: #3fefef;
-    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef);
-    margin-top: 100px;
+.socialMedia ul li:hover{
+    z-index: 10000;
+    transform: scale(0.75);
 }
-.scan{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.scan .fingerprint{
-    position: relative;
-    width: 300px;
-    height: 380px;
-    background: url(./img/fingerPrint_01.png);
-    background-size: 300px;
-}
-.scan .fingerprint::before{
+.socialMedia ul li::before{
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url(./img/fingerPrint_02.png);
-    filter: drop-shadow(0 0 20px #3fefef);
-    background-size: 300px;
-    animation: scan 4s ease-in-out infinite;
+    inset: 30px;
+    box-shadow: 0 0 0 10px var(--clr), 0 0 0 20px var(--bg), 0 0 0 22px var(--clr);
 }
-@keyframes scan{
-    0%,100%{
-        height: 0%;
-    }
-    50%{
-        height: 100%;
-    }
+.socialMedia ul li:hover::before{
+    inset: 0px;
 }
-.scan .fingerprint::after{
+.socialMedia ul li::after{
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: #3fefef;
-    border-radius: 8px;
-    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef);
-    animation: line 4s ease-in-out infinite;
+    inset: 0;
+    background: var(--bg);
+    transform: rotate(45deg);
 }
-@keyframes line{
+.socialMedia ul li a{
+    position: relative;
+    text-decoration: none;
+    color: var(--clr);
+    z-index: 10;
+    font-size: 2em;
+    transition: 0.5s;
+}
+.socialMedia ul li:hover a{
+    font-size: 3em;
+    filter: drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
+.socialMedia {
+    height: 100px;
+    width: 30%;
+    float: left;
+    margin-top: 20px;
+}
+@keyframes animateColor {
     0%,100%{
-        top: 0%;
+        filter: hue-rotate(0deg);
     }
     50%{
-        top: 100%;
+        filter: hue-rotate(180deg);
     }
 }
