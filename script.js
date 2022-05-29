@@ -14,4 +14,12 @@ function clock()
     setTimeout("clock()",1000);
 }
 
+function clockClicked() {
+    var contentInfinity = document.getElementById("contentInfinity");
+    contentInfinity.style.visibility = "hidden";
+}
 
+function infinityClicked() {
+    var contentInfinity = document.getElementById("contentInfinity");
+    contentInfinity.style.visibility = "visible";
+}

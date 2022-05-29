@@ -34,6 +34,7 @@ body::-webkit-scrollbar {
     background-color: rgb(37, 37, 37);
 }
 #clock {
+    cursor: pointer;
     width: 40%;
     height: 100px;
     border-style: solid;
@@ -56,17 +57,19 @@ body::-webkit-scrollbar {
     gap: 50px;
 }
 .socialMedia ul li{
-    margin: 10%;
-    margin-left: 15%;
+    margin-left: calc(50% - 80px);
     position: relative;
     list-style: none;
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: 0.5s;
+}
+.socialMedia ul li a i {
+    font-size: 2em;
 }
 .socialMedia ul li:hover{
     z-index: 10000;
@@ -104,7 +107,7 @@ body::-webkit-scrollbar {
     height: 100px;
     width: 30%;
     float: left;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 @keyframes animateColor {
     0%,100%{
@@ -113,4 +116,117 @@ body::-webkit-scrollbar {
     50%{
         filter: hue-rotate(180deg);
     }
+}
+#nav {
+    height: 100%;
+    width: 10%;
+    float: left;
+}
+#content {
+    height: 100%;
+    width: 90%;
+    float: left;
+}
+#bottom {
+    height: 750px;
+    width: 100%;
+    margin-top: 250px;
+}
+#nav li {
+    width: 80%;
+    height: 15%;
+    margin-left: 10%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(50, 229, 232);
+    list-style: none;
+    cursor: pointer;
+    animation: animateColor 4s linear infinite;
+    box-shadow: 0 0 10px rgb(50, 229, 232),
+    0 0 20px rgb(50, 229, 232);
+    border-radius: 20px;
+}
+@keyframes infinityAnimateColor {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+#infinity section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+#nav #infinity section {
+    margin-top: 0px;
+}
+#infinity section .circle{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 -2px;
+    animation: animateColor 8s linear infinite;
+}
+#nav #infinity section .circle {
+    width: 100px;
+    height: 100px;
+}
+#infinity section .circle span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+}
+#infinity section .circle span::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: calc(50% - 7.5px);
+    width: 25px;
+    height: 25px;
+    background: #00ff0a;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff0a,
+    0 0 20px #00ff0a,
+    0 0 40px #00ff0a,
+    0 0 60px #00ff0a,
+    0 0 80px #00ff0a,
+    0 0 100px #00ff0a;
+    transform: scale(0.1);
+    animation: animate 4s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+#nav #infinity section .circle span::before {
+    
+    box-shadow: 0 0 5px #00ff0a,
+    0 0 10px #00ff0a;
+    top: calc(50% - 2px);
+    width: 4px;
+    height: 4px;
+}
+@keyframes animate{
+    0%{
+        transform: scale(1);
+    }
+    50%,100%{
+        transform: scale(0.1);
+    }
+}
+#infinity section .circle:nth-child(2){
+    transform: rotate(-180deg);
+}
+#infinity section .circle:nth-child(2) span::before{
+    animation-delay: calc(-0.1s * var(--i));
+}
+#contentInfinity {
+    visibility: hidden;
+    position: absolute;
+    margin-left: 100px;
 }
