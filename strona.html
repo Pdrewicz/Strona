@@ -81,7 +81,11 @@
                 </li>
                 <li id="calculator" onclick="calculatorClicked()"><img src="img/kalkulator.png"></li>
                 <li id="gravity" onclick="gravityClicked()"><img src="img/grawitacja.png"></li>
-                <li></li>
+                <li id="bowlButton" onclick="bowlClicked()">
+                    <div id="bowl">
+                        <div id="liquid"></div>
+                    </div>
+                </li>
                 <li></li>
             </ul>
             <div id="content">
@@ -171,6 +175,16 @@
                     </div>
                     <canvas id="gravityCanvas" width="500" height="500" onload="canvas()">
                     </canvas>
+                </div>
+                <div id="contentBowl">
+                    <section id="bowlSection">
+                        <div class="bowl" id="bowl1">
+                            <div class="liquid"></div>
+                        </div>
+                        <div class="bowl"  id="bowl2">
+                            <div class="liquid"></div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

@@ -27,6 +27,7 @@ function clockClicked() {
     contentInfinity.style.visibility = "hidden";
     contentCalculator.style.visibility = "hidden";
     contentGravity.style.visibility = "hidden";
+    contentBowl.style.visibility = "hidden";
 }
 
 function infinityClicked() {
@@ -34,18 +35,28 @@ function infinityClicked() {
     contentInfinity.style.visibility = "visible";
     contentCalculator.style.visibility = "hidden";
     contentGravity.style.visibility = "hidden";
+    contentBowl.style.visibility = "hidden";
 }
 function calculatorClicked() {
     var contentCalculator = document.getElementById("contentCalculator");
     contentCalculator.style.visibility = "visible";
     contentInfinity.style.visibility = "hidden";
     contentGravity.style.visibility = "hidden";
+    contentBowl.style.visibility = "hidden";
 }
 function gravityClicked() {
     var contentGravity = document.getElementById("contentGravity");
     contentGravity.style.visibility = "visible";
     contentCalculator.style.visibility = "hidden";
     contentInfinity.style.visibility = "hidden";
+    contentBowl.style.visibility = "hidden";
+}
+function bowlClicked() {
+    var contentBowl = document.getElementById("contentBowl");
+    contentBowl.style.visibility = "visible";
+    contentCalculator.style.visibility = "hidden";
+    contentInfinity.style.visibility = "hidden";
+    contentGravity.style.visibility = "hidden";
 }
 function button(id){
     var textLength = document.getElementById("displayText").innerHTML.length
@@ -94,7 +105,7 @@ function submit(){
 function gravity() {
     var gravityCanvas = document.getElementById('gravityCanvas');
     var ctx = gravityCanvas.getContext('2d');
-    ctx.fillStyle = "#03fca5";
+    ctx.fillStyle = "#393944";
     ctx.clearRect(0, 0, gravityCanvas.width, gravityCanvas.height);
     ctx.fillRect(gravity_x, gravity_y, 50, 50);
     if (gravity_y < 450) {
