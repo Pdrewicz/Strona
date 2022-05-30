@@ -28,6 +28,7 @@ function clockClicked() {
     contentCalculator.style.visibility = "hidden";
     contentGravity.style.visibility = "hidden";
     contentBowl.style.visibility = "hidden";
+    contentParticles.style.visibility = "hidden";
 }
 
 function infinityClicked() {
@@ -36,6 +37,7 @@ function infinityClicked() {
     contentCalculator.style.visibility = "hidden";
     contentGravity.style.visibility = "hidden";
     contentBowl.style.visibility = "hidden";
+    contentParticles.style.visibility = "hidden";
 }
 function calculatorClicked() {
     var contentCalculator = document.getElementById("contentCalculator");
@@ -43,6 +45,7 @@ function calculatorClicked() {
     contentInfinity.style.visibility = "hidden";
     contentGravity.style.visibility = "hidden";
     contentBowl.style.visibility = "hidden";
+    contentParticles.style.visibility = "hidden";
 }
 function gravityClicked() {
     var contentGravity = document.getElementById("contentGravity");
@@ -50,6 +53,7 @@ function gravityClicked() {
     contentCalculator.style.visibility = "hidden";
     contentInfinity.style.visibility = "hidden";
     contentBowl.style.visibility = "hidden";
+    contentParticles.style.visibility = "hidden";
 }
 function bowlClicked() {
     var contentBowl = document.getElementById("contentBowl");
@@ -57,10 +61,18 @@ function bowlClicked() {
     contentCalculator.style.visibility = "hidden";
     contentInfinity.style.visibility = "hidden";
     contentGravity.style.visibility = "hidden";
+    contentParticles.style.visibility = "hidden";
+}
+function particlesClicked() {
+    var contentParticles = document.getElementById("contentParticles");
+    contentParticles.style.visibility = "visible";
+    contentBowl.style.visibility = "hidden";
+    contentCalculator.style.visibility = "hidden";
+    contentInfinity.style.visibility = "hidden";
+    contentGravity.style.visibility = "hidden";
 }
 function button(id){
-    var textLength = document.getElementById("displayText").innerHTML.length
-    if (textLength < 10) {
+    if (document.getElementById("displayText").innerHTML.length < 10) {
         document.getElementById("displayText").innerHTML+=document.getElementById(id).innerHTML;
     }
 }
@@ -76,12 +88,15 @@ function count(count){
     if (countType == "sqr"){
         document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("displayText").innerHTML)*parseFloat(document.getElementById("displayText").innerHTML)
         document.getElementById("calculator2").innerHTML=""
+        calculatorLength()
     } else if (countType == "sqrt") {
         document.getElementById("displayText").innerHTML=Math.sqrt(parseFloat(document.getElementById("displayText").innerHTML))
         document.getElementById("calculator2").innerHTML=""
+        calculatorLength()
     } else {
         document.getElementById("calculator2").innerHTML=document.getElementById("displayText").innerHTML
         document.getElementById("displayText").innerHTML=""
+        calculatorLength()
     }
 }
 function submit(){
@@ -89,25 +104,64 @@ function submit(){
         if (countType == "add"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("displayText").innerHTML)+parseFloat(document.getElementById("calculator2").innerHTML)
             document.getElementById("calculator2").innerHTML=""
+            calculatorLength()
         } else if (countType == "sub"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("calculator2").innerHTML)-parseFloat(document.getElementById("displayText").innerHTML)
             document.getElementById("calculator2").innerHTML=""
+            calculatorLength()
         } else if (countType == "mult"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("displayText").innerHTML)*parseFloat(document.getElementById("calculator2").innerHTML)
             document.getElementById("calculator2").innerHTML=""
+            calculatorLength()
         } else if (countType == "div"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("calculator2").innerHTML)/parseFloat(document.getElementById("displayText").innerHTML)
             document.getElementById("calculator2").innerHTML=""
+            calculatorLength()
         }
+    }
+}
+function calculatorLength() {
+    if (document.getElementById("displayText").innerHTML.length > 10) {
+        var text = document.getElementById("displayText").innerHTML
+        document.getElementById("displayText").innerHTML = text.replace(/\d$/, '')
+        calculatorLength()
     }
 }
 
 function gravity() {
     var gravityCanvas = document.getElementById('gravityCanvas');
     var ctx = gravityCanvas.getContext('2d');
-    ctx.fillStyle = "#393944";
     ctx.clearRect(0, 0, gravityCanvas.width, gravityCanvas.height);
-    ctx.fillRect(gravity_x, gravity_y, 50, 50);
+    ctx.fillStyle = "#4f4f63";
+    ctx.fillRect(gravity_x, gravity_y - 50, 50, 80);
+    ctx.fillStyle = "#393944";
+    ctx.fillRect(gravity_x + 2, gravity_y - 48, 46, 76);
+    ctx.fillStyle = "#4f4f63";
+    ctx.fillRect(gravity_x, gravity_y + 30, 20, 25);
+    ctx.fillStyle = "#393944";
+    ctx.fillRect(gravity_x + 2, gravity_y + 30, 16, 21);
+    ctx.fillStyle = "#4f4f63";
+    ctx.fillRect(gravity_x + 30, gravity_y + 30, 20, 25);
+    ctx.fillStyle = "#393944";
+    ctx.fillRect(gravity_x + 32, gravity_y + 30, 16, 21);
+    ctx.fillStyle = "#4f4f63";
+    ctx.fillRect(gravity_x - 10, gravity_y - 50, 10, 50);
+    ctx.fillStyle = "#393944";
+    ctx.fillRect(gravity_x - 8, gravity_y - 48, 8, 46);
+    ctx.fillStyle = "#4f4f63";
+    ctx.fillRect(gravity_x + 50, gravity_y - 50, 10, 50);
+    ctx.fillStyle = "#393944";
+    ctx.fillRect(gravity_x  + 50, gravity_y - 48, 8, 46);
+    ctx.fillStyle = "#4f4f63";
+    ctx.beginPath();
+    ctx.arc(gravity_x + 25, gravity_y - 70, 30, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+    ctx.fillStyle = "#393944";
+    ctx.beginPath();
+    ctx.arc(gravity_x + 25, gravity_y - 70, 27, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
     if (gravity_y < 450) {
         gravity_y += 0.5
     }
