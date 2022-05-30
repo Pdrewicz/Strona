@@ -72,9 +72,7 @@ function particlesClicked() {
     contentGravity.style.visibility = "hidden";
 }
 function button(id){
-    if (document.getElementById("displayText").innerHTML.length < 10) {
-        document.getElementById("displayText").innerHTML+=document.getElementById(id).innerHTML;
-    }
+    document.getElementById("displayText").innerHTML+=document.getElementById(id).innerHTML;
 }
 function back(){
     var text = document.getElementById("displayText").innerHTML
@@ -88,15 +86,12 @@ function count(count){
     if (countType == "sqr"){
         document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("displayText").innerHTML)*parseFloat(document.getElementById("displayText").innerHTML)
         document.getElementById("calculator2").innerHTML=""
-        calculatorLength()
     } else if (countType == "sqrt") {
         document.getElementById("displayText").innerHTML=Math.sqrt(parseFloat(document.getElementById("displayText").innerHTML))
         document.getElementById("calculator2").innerHTML=""
-        calculatorLength()
     } else {
         document.getElementById("calculator2").innerHTML=document.getElementById("displayText").innerHTML
         document.getElementById("displayText").innerHTML=""
-        calculatorLength()
     }
 }
 function submit(){
@@ -104,27 +99,16 @@ function submit(){
         if (countType == "add"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("displayText").innerHTML)+parseFloat(document.getElementById("calculator2").innerHTML)
             document.getElementById("calculator2").innerHTML=""
-            calculatorLength()
         } else if (countType == "sub"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("calculator2").innerHTML)-parseFloat(document.getElementById("displayText").innerHTML)
             document.getElementById("calculator2").innerHTML=""
-            calculatorLength()
         } else if (countType == "mult"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("displayText").innerHTML)*parseFloat(document.getElementById("calculator2").innerHTML)
             document.getElementById("calculator2").innerHTML=""
-            calculatorLength()
         } else if (countType == "div"){
             document.getElementById("displayText").innerHTML=parseFloat(document.getElementById("calculator2").innerHTML)/parseFloat(document.getElementById("displayText").innerHTML)
             document.getElementById("calculator2").innerHTML=""
-            calculatorLength()
         }
-    }
-}
-function calculatorLength() {
-    if (document.getElementById("displayText").innerHTML.length > 10) {
-        var text = document.getElementById("displayText").innerHTML
-        document.getElementById("displayText").innerHTML = text.replace(/\d$/, '')
-        calculatorLength()
     }
 }
 

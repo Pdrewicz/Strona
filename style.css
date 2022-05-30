@@ -290,6 +290,9 @@ body::-webkit-scrollbar {
     position: relative;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #display div{
     position: absolute;
